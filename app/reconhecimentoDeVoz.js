@@ -1,6 +1,6 @@
-const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 const elementoChute = document.getElementById('chute')
 
+window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
 
 const recognition = new SpeechRecognition()
 recognition.leng = 'pt-Br'
@@ -11,7 +11,7 @@ recognition.addEventListener('result', onSpeack)
 
 function onSpeack (e) {
     chute = e.results[0][0].transcript
-    exibeChuteNaTela()
+    exibeChuteNaTela(chute)
     verificaSeOChutePossuiUmValorValido(chute)
 }
 
